@@ -37,4 +37,4 @@ exports.handler = async (event) => {
       body: JSON.stringify({ error: 'No se pudo generar la firma para la subida.' }),
     };
   }
-};S
+};
