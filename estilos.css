@@ -1,37 +1,39 @@
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #F8F5F2;
+  background-color: #F2FBF7; /* verde muy claro, casi blanco */
 }
 
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
+  color: #2E4F4F; /* verde musgo elegante */
 }
 
 .hero-section {
   height: 100vh;
-  background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(0, 0, 0, 0.6)), url('hero.jpg') center/cover no-repeat;
-  color: white;
+  background: linear-gradient(rgba(60, 140, 110, 0.5), rgba(40, 110, 90, 0.6)), url('hero.jpg') center/cover no-repeat;
+  color: #fff;
 }
 
 .btn-brand {
-  background-color: #715c4b;
+  background-color: #66CDAA; /* verde menta suave */
   color: #fff;
   border: none;
   padding: 12px 28px;
   font-weight: 600;
   transition: 0.3s ease;
+  border-radius: 8px;
 }
 
 .btn-brand:hover {
-  background-color: #5e4b3d;
+  background-color: #4DBD94; /* verde más fuerte */
 }
 
 .section-divider {
-  background-color: #fefefe;
+  background-color: #E8F7F1;
 }
 
 .section-on-gradient {
-  background: linear-gradient(to bottom right, #fdf7f2, #f8f3ed);
+  background: linear-gradient(to bottom right, #E3F4EF, #CFF1E3);
 }
 
 /* ============================== */
@@ -40,25 +42,32 @@ h1, h2, h3 {
 .product-card {
   border: none;
   transition: all 0.3s ease-in-out;
-  background: #fff;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(80, 120, 100, 0.12);
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(42, 59, 73, 0.15) !important;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(60, 100, 80, 0.2) !important;
 }
 
 .product-card img {
   height: 280px;
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .footer-dark {
-  background-color: #4a3e36;
+  background-color: #2F4F4F; /* verde oscuro azulado */
   color: #fefefe;
+  padding-top: 40px;
+}
+
+.footer-dark a {
+  color: #fefefe;
+  text-decoration: none;
 }
 
 .footer-dark a:hover {
@@ -67,13 +76,13 @@ h1, h2, h3 {
 
 /* Estilos personalizados de marca */
 .brand-gold {
-  color: #B08D57;
+  color: #BBA873; /* dorado suave verdoso */
 }
 
 .bg-brand-green {
-  background-color: #6B7A53;
+  background-color: #C9E6DC; /* verde pastel suave */
 }
 
 .text-brand-dark {
-  color: #3A3A3A;
+  color: #2E3D3B;
 }
