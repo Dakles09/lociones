@@ -1,49 +1,45 @@
-/*
- * Este script se ejecuta una vez que todo el contenido del HTML ha sido cargado (DOMContentLoaded).
- * Se asegura de que todos los elementos existan antes de intentar manipularlos.
- */
-document.addEventListener('DOMContentLoaded', function () {
+// Contenido para script.js
 
-    // --- TAREA 1: INICIALIZAR FEATHER ICONS ---
-    // Reemplaza las etiquetas <i data-feather="..."> por los iconos SVG correspondientes.
-    try {
-        feather.replace();
-    } catch (e) {
-        console.error("Error al inicializar Feather Icons.", e);
+document.addEventListener('DOMContentLoaded', () => {
+    const productListContainer = document.getElementById('product-list');
+
+    async function loadProducts() {
+        if (!productListContainer) return;
+
+        productListContainer.innerHTML = '<p class="text-center text-muted">Cargando nuestra colección...</p>';
+        try {
+            const response = await fetch('/.netlify/functions/products');
+            if (!response.ok) throw new Error('No se pudieron cargar los productos.');
+            
+            const products = await response.json();
+
+            if (products.length === 0) {
+                productListContainer.innerHTML = '<p class="text-center text-muted">Aún no hay fragancias disponibles. ¡Vuelve pronto!</p>';
+                return;
+            }
+
+            const allProductsHTML = products.map(product => `
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 product-card shadow-sm">
+                        <img src="${product.image_url}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text text-muted">${product.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            productListContainer.innerHTML = allProductsHTML;
+
+        } catch (error) {
+            console.error('Error al cargar productos:', error);
+            productListContainer.innerHTML = '<p class="text-center text-danger">Error al cargar la colección.</p>';
+        }
     }
 
-    // --- TAREA 2: ACTUALIZAR EL AÑO EN EL FOOTER ---
-    // Busca el elemento con id="year" y le inserta el año actual.
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    loadProducts();
     
-    // --- TAREA 3: INICIALIZAR TOOLTIPS DE BOOTSTRAP ---
-    // Busca todos los elementos con 'data-bs-toggle="tooltip"' y los activa.
-    // Es necesario para que los tooltips (mensajes emergentes) en los iconos sociales funcionen.
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-
-    // --- TAREA 4: MEJORA DE UX - CERRAR NAVBAR AL HACER CLIC EN UN ENLACE ---
-    // Cierra el menú de navegación móvil automáticamente después de hacer clic en un enlace.
-    const mainNavbar = document.getElementById('mainNavbar');
-    if (mainNavbar) {
-        const navLinks = mainNavbar.querySelectorAll('.nav-link');
-        const bsCollapse = new bootstrap.Collapse(mainNavbar, {
-            toggle: false
-        });
-
-        navLinks.forEach(function (link) {
-            link.addEventListener('click', function () {
-                // Solo intenta cerrar si el menú está visible (en modo móvil).
-                if (bsCollapse._isShown()) {
-                    bsCollapse.hide();
-                }
-            });
-        });
-    }
-
+    // Si usas Feather Icons, asegúrate de que se inicialicen
+    try { feather.replace(); } catch (e) {}
 });

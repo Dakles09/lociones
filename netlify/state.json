@@ -1,0 +1,21 @@
+{
+	"siteId": "1623a6bb-04b0-4952-b857-005e75e71f3e",
+	"geolocation": {
+		"data": {
+			"city": "Tumaco",
+			"country": {
+				"code": "CO",
+				"name": "Colombia"
+			},
+			"subdivision": {
+				"code": "NAR",
+				"name": "Nariño"
+			},
+			"timezone": "America/Bogota",
+			"latitude": 1.8024,
+			"longitude": -78.815,
+			"postalCode": "528502"
+		},
+		"timestamp": 1753415846294
+	}
+}

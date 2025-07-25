@@ -1,151 +1,19 @@
-/* ============================================= */
-/* ========== FUENTES Y COLORES BASE (TEMA FRESCO) =========== */
-/* ============================================= */
-:root {
-    /* -- NUEVA PALETA DE COLORES VIBRANTE -- */
-    --color-principal: #008080;      /* Un verde azulado (teal) fresco y elegante */
-    --color-acento: #FF7F50;         /* Coral, un acento cálido y energético */
-    --color-fondo-claro: #F0F8FF;   /* Azul Alice, un fondo muy claro y aireado */
-    --color-fondo-oscuro: #2A3B49;   /* Un azul carbón profundo para el footer */
-    --color-texto: #333333;          /* Negro suave para el texto */
-
-    /* Fuentes existentes (son una excelente combinación) */
-    --brand-font-headings: 'Playfair Display', serif;
-    --brand-font-body: 'Montserrat', sans-serif;
-    --font-script: 'Caveat', cursive;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/** VIBRANTE: Usamos un gradiente sutil para un fondo dinámico **/
-body {
-    font-family: var(--brand-font-body);
-    padding-top: 70px;
-    color: var(--color-texto);
-    /* El gradiente va de blanco a nuestro color de fondo claro */
-    background-image: linear-gradient(180deg, #FFFFFF 0%, var(--color-fondo-claro) 100%);
-    background-attachment: fixed; /* El fondo no se mueve con el scroll */
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: var(--brand-font-headings);
-    color: var(--color-principal); /* Los títulos ahora usan el color principal */
-}
-
+/* Agrega esto al final de tu archivo estilos.css */
 
 /* ============================================= */
-/* =========== COMPONENTES PERSONALIZADOS ====== */
+/* ====== TARJETAS DE PRODUCTOS DINÁMICAS ====== */
 /* ============================================= */
-
-/** REFINADO: Se ajusta para que flote sobre el fondo gradiente **/
-.navbar-translucent {
-    background-color: rgba(255, 255, 255, 0.75) !important; /* Más transparente */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.brand-title {
-    font-family: var(--font-script);
-    font-size: 2.2rem;
-    color: var(--color-principal) !important; /* Usamos el nuevo color principal */
-    font-weight: 700;
-}
-
-/* --- Sección Hero --- */
-.hero-section {
-    color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('Imagen1.jpg') no-repeat center center;
-    background-size: cover;
-    height: 90vh;
-    min-height: 500px;
-}
-
-/** VIBRANTE: Botón con gradiente y efecto de brillo **/
-.btn-brand {
-    color: white;
+.product-card {
     border: none;
-    border-radius: 50px;
-    padding: 0.8rem 2rem;
-    font-weight: bold;
-    background-image: linear-gradient(45deg, var(--color-principal) 0%, var(--color-acento) 100%);
-    background-size: 200% auto;
-    transition: all 0.4s ease-out;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
-.btn-brand:hover {
-    background-position: right center; /* Cambia la dirección del gradiente */
-    color: white;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(42, 59, 73, 0.15) !important;
 }
 
-/** NUEVO: Divisor de sección decorativo en forma de ola **/
-.section-divider {
-    position: relative;
-}
-.section-divider::after {
-    content: '';
-    position: absolute;
-    bottom: -1px; /* Se posiciona justo al final de la sección */
-    left: 0;
-    width: 100%;
-    height: 50px; /* Altura de la ola */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z' style='fill:%23ffffff;'%3E%3C/path%3E%3C/svg%3E");
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 10;
-}
-
-
-/** REFINADO: Las secciones ahora flotan sobre el fondo con una sombra **/
-.section-on-gradient {
-    background-color: #FFFFFF;
-    border-radius: 1rem;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
-    box-shadow: 0 15px 40px rgba(42, 59, 73, 0.1); /* Sombra con color --color-fondo-oscuro */
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-
-/* --- Carrusel de Productos --- */
-#productCarousel .carousel-item img {
-    height: 550px;
-    width: 100%;
-    object-fit: contain;
-    border-radius: 0.5rem;
-}
-
-#productCarousel .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    bottom: 1.25rem;
-}
-
-/* --- Footer --- */
-.footer-dark {
-    background-color: var(--color-fondo-oscuro);
-    border-top: 4px solid var(--color-acento); /* Detalle con el color de acento */
-    color: #FFFFFF;
-}
-
-.footer-dark .brand-title {
-    color: #FFFFFF !important;
-}
-
-.social-links a {
-    color: white;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.social-links a:hover {
-    color: var(--color-acento); /* El hover ahora usa el acento cálido */
-    transform: translateY(-3px);
+.product-card img {
+    height: 280px;
+    object-fit: cover;
 }
