@@ -1,4 +1,4 @@
-// Contenido para admin.js
+// admin.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const productForm = document.getElementById('add-product-form');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('file', imageFile);
                 formData.append('timestamp', timestamp);
                 formData.append('signature', signature);
-                formData.append('api_key', '572478633839659'); // <-- USA TU NUEVA API KEY
+                formData.append('api_key', '572478633839659'); // <-- Reemplaza con tu API Key real si cambia
 
                 const cloudName = 'dketljaul';
                 const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;

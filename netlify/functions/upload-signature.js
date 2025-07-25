@@ -1,10 +1,15 @@
 const cloudinary = require('cloudinary').v2;
 
-// 👇 AÑADE ESTA LÍNEA PARA DEPURAR
-// Esto te permite ver en los logs de Netlify si la variable se está cargando.
-console.log("Función iniciada. ¿API Key cargada?", process.env.CLOUDINARY_API_KEY ? "Sí" : "No");
+// ✅ Verifica si las variables están presentes y muestra el estado en los logs
+console.log("🔐 Cloudinary API Key cargada:", !!process.env.CLOUDINARY_API_KEY);
+console.log("🔐 Cloudinary API Secret cargada:", !!process.env.CLOUDINARY_API_SECRET);
+console.log("☁️ Cloud Name cargado:", !!process.env.CLOUDINARY_CLOUD_NAME);
 
-// Configura Cloudinary usando las variables de entorno
+// ⚠️ Validación rápida antes de continuar
+if (!process.env.CLOUDINARY_API_SECRET || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_CLOUD_NAME) {
+  console.error("❌ Error: Faltan variables de entorno de Cloudinary.");
+}
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -12,26 +17,26 @@ cloudinary.config({
 });
 
 exports.handler = async (event) => {
-  const timestamp = Math.round((new Date()).getTime() / 1000);
+  const timestamp = Math.floor(Date.now() / 1000);
 
   try {
-    // Genera la firma segura usando el timestamp y tu API Secret
     const signature = cloudinary.utils.api_sign_request(
-      {
-        timestamp: timestamp,
-      },
-      cloudinary.config().api_secret
+      { timestamp },
+      process.env.CLOUDINARY_API_SECRET
     );
 
-    // Si todo va bien, devuelve la firma y el timestamp
     return {
       statusCode: 200,
       body: JSON.stringify({ signature, timestamp }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*', // por si necesitas acceso desde frontend local
+      },
     };
 
   } catch (error) {
-    // Si hay un error, lo registra en los logs y devuelve un error 500
-    console.error("Error al generar la firma:", error);
+    console.error("❌ Error al generar la firma:", error);
+
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'No se pudo generar la firma para la subida.' }),
