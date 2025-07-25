@@ -1,19 +1,61 @@
-/* Agrega esto al final de tu archivo estilos.css */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
-/* ============================================= */
-/* ====== TARJETAS DE PRODUCTOS DINÁMICAS ====== */
-/* ============================================= */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(0, 0, 0, 0.6)), url('hero.jpg') center/cover no-repeat;
+  color: white;
+}
+
+.btn-brand {
+  background-color: #715c4b;
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #5e4b3d;
+}
+
+.section-divider {
+  background-color: #fefefe;
+}
+
+.section-on-gradient {
+  background: linear-gradient(to bottom right, #fdf7f2, #f8f3ed);
+}
+
+/* ============================== */
+/* ====== TARJETAS DE PRODUCTOS */
+/* ============================== */
 .product-card {
-    border: none;
-    transition: all 0.3s ease-in-out;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  background: #fff;
+  border-radius: 12px;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(42, 59, 73, 0.15) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(42, 59, 73, 0.15) !important;
 }
 
 .product-card img {
-    height: 280px;
-    object-fit: cover;
+  height: 280px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.footer-dark {
+  background-color: #4a3e36;
+  color: #fefefe;
+}
+
+.footer-dark a:hover {
+  text-decoration: underline;
 }
