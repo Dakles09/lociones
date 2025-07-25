@@ -1,88 +1,62 @@
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #F2FBF7; /* verde muy claro, casi blanco */
+/* ============= FORMULARIOS DE LOGIN Y REGISTRO ============= */
+#auth {
+  background-color: #F2FBF7; /* mismo fondo que body */
+  padding: 60px 0;
 }
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+#auth h2, #auth h5 {
   color: #2E4F4F; /* verde musgo elegante */
+  font-family: 'Playfair Display', serif;
 }
 
-.hero-section {
-  height: 100vh;
-  background: linear-gradient(rgba(60, 140, 110, 0.5), rgba(40, 110, 90, 0.6)), url('hero.jpg') center/cover no-repeat;
-  color: #fff;
-}
-
-.btn-brand {
-  background-color: #66CDAA; /* verde menta suave */
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  border-radius: 8px;
-}
-
-.btn-brand:hover {
-  background-color: #4DBD94; /* verde más fuerte */
-}
-
-.section-divider {
-  background-color: #E8F7F1;
-}
-
-.section-on-gradient {
-  background: linear-gradient(to bottom right, #E3F4EF, #CFF1E3);
-}
-
-/* ============================== */
-/* ====== TARJETAS DE PRODUCTOS */
-/* ============================== */
-.product-card {
-  border: none;
-  transition: all 0.3s ease-in-out;
-  background: #ffffff;
+#auth form {
+  background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 5px 15px rgba(80, 120, 100, 0.12);
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(60, 100, 80, 0.1);
+  margin-bottom: 30px;
 }
 
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(60, 100, 80, 0.2) !important;
-}
-
-.product-card img {
-  height: 280px;
-  object-fit: cover;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-
-.footer-dark {
-  background-color: #2F4F4F; /* verde oscuro azulado */
-  color: #fefefe;
-  padding-top: 40px;
-}
-
-.footer-dark a {
-  color: #fefefe;
-  text-decoration: none;
-}
-
-.footer-dark a:hover {
-  text-decoration: underline;
-}
-
-/* Estilos personalizados de marca */
-.brand-gold {
-  color: #BBA873; /* dorado suave verdoso */
-}
-
-.bg-brand-green {
-  background-color: #C9E6DC; /* verde pastel suave */
-}
-
-.text-brand-dark {
+#auth label {
+  font-weight: 500;
   color: #2E3D3B;
+}
+
+#auth .form-control {
+  border-radius: 10px;
+  border: 1px solid #C9E6DC;
+  box-shadow: none;
+}
+
+#auth .form-control:focus {
+  border-color: #4DBD94;
+  box-shadow: 0 0 0 0.2rem rgba(102, 205, 170, 0.25);
+}
+
+#auth .btn-success {
+  background-color: #4DBD94;
+  border: none;
+}
+
+#auth .btn-success:hover {
+  background-color: #3DA57E;
+}
+
+#auth .btn-primary {
+  background-color: #66CDAA;
+  border: none;
+}
+
+#auth .btn-primary:hover {
+  background-color: #4DBD94;
+}
+
+#auth hr {
+  border-top: 1px solid #C9E6DC;
+  margin: 30px 0;
+}
+
+#auth #login-message,
+#auth #register-message {
+  font-size: 0.9rem;
 }
