@@ -2,6 +2,7 @@
   "name": "aroma-viva",
   "version": "1.0.0",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cloudinary": "^2.7.0",
     "pg": "^8.16.3",
     "sqlite3": "^5.1.7"

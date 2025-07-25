@@ -1,7 +1,6 @@
-// /netlify/functions/register.js
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs'); // ← cambiado aquí
 
 const dbPath = path.resolve(__dirname, '../../db/users.db');
 const db = new sqlite3.Database(dbPath);
@@ -14,7 +13,10 @@ exports.handler = async function (event) {
   const { name, email, password } = JSON.parse(event.body);
 
   if (!name || !email || !password) {
-    return { statusCode: 400, body: JSON.stringify({ message: 'Todos los campos son requeridos.' }) };
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: 'Todos los campos son requeridos.' }),
+    };
   }
 
   return new Promise((resolve) => {
@@ -23,13 +25,17 @@ exports.handler = async function (event) {
         resolve({ statusCode: 409, body: JSON.stringify({ message: 'El usuario ya existe.' }) });
       } else {
         const hashedPassword = await bcrypt.hash(password, 10);
-        db.run('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [name, email, hashedPassword], (insertErr) => {
-          if (insertErr) {
-            resolve({ statusCode: 500, body: JSON.stringify({ message: 'Error al registrar usuario.' }) });
-          } else {
-            resolve({ statusCode: 200, body: JSON.stringify({ message: 'Usuario registrado correctamente.' }) });
+        db.run(
+          'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+          [name, email, hashedPassword],
+          (insertErr) => {
+            if (insertErr) {
+              resolve({ statusCode: 500, body: JSON.stringify({ message: 'Error al registrar usuario.' }) });
+            } else {
+              resolve({ statusCode: 200, body: JSON.stringify({ message: 'Usuario registrado correctamente.' }) });
+            }
           }
-        });
+        );
       }
     });
   });
