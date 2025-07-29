@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const productListContainer = document.getElementById('product-list');
 
-  // Cargar productos
   async function loadProducts() {
     if (!productListContainer) return;
 
@@ -9,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('/.netlify/functions/products');
       if (!response.ok) throw new Error('No se pudieron cargar los productos.');
-      
+
       const products = await response.json();
 
-      if (products.length === 0) {
+      if (!Array.isArray(products) || products.length === 0) {
         productListContainer.innerHTML = '<p class="text-center text-muted">Aún no hay fragancias disponibles. ¡Vuelve pronto!</p>';
         return;
       }
@@ -39,8 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProducts();
 
-  // Reemplazar íconos de Feather
-  try {
-    feather.replace();
-  } catch (e) {}
+  if (typeof feather !== 'undefined') {
+    try {
+      feather.replace();
+    } catch (e) {
+      console.warn('Feather icons no se pudieron reemplazar.', e);
+    }
+  }
 });

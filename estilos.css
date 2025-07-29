@@ -1,4 +1,64 @@
-/* ========== ESTILOS GENERALES PARA FORMULARIOS Y BOTONES ========== */
+/* ============= ESTILOS GENERALES PARA FORMULARIOS Y BOTONES ============= */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #f7fdfb, #e5f6f0);
+  color: #2E3D3B;
+  margin-top: 80px;
+}
+
+.navbar-brand.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #4DBD94 !important;
+}
+
+.hero-section {
+  background: linear-gradient(to bottom, #4DBD94, #66CDAA);
+  color: white;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.section-divider {
+  background-color: #ffffff;
+}
+
+.section-on-gradient {
+  background: linear-gradient(to right, #f7fdfb, #d1eee5);
+}
+
+.btn-brand {
+  background-color: #ffffff;
+  color: #4DBD94;
+  border: 2px solid #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-brand:hover {
+  background-color: #3DA57E;
+  color: #fff;
+  border-color: #3DA57E;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.product-card img {
+  height: 250px;
+  object-fit: cover;
+}
 
 form {
   background-color: #ffffff;
@@ -6,80 +66,56 @@ form {
   padding: 30px;
   box-shadow: 0 8px 24px rgba(60, 100, 80, 0.1);
   margin-bottom: 30px;
-  max-width: 600px;
-  margin-inline: auto;
 }
 
 label {
   font-weight: 500;
   color: #2E3D3B;
-  margin-bottom: 6px;
-  display: block;
 }
 
-input[type="text"],
-input[type="email"],
-textarea,
-select,
 .form-control {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  color: #2E3D3B;
-  background-color: #fff;
-  border: 1px solid #C9E6DC;
   border-radius: 10px;
+  border: 1px solid #C9E6DC;
   box-shadow: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input:focus,
-textarea:focus,
-select:focus,
 .form-control:focus {
   border-color: #4DBD94;
   box-shadow: 0 0 0 0.2rem rgba(102, 205, 170, 0.25);
-  outline: none;
 }
-
-/* Botones personalizados */
 
 .btn-success {
   background-color: #4DBD94;
-  color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s;
 }
 
 .btn-success:hover {
   background-color: #3DA57E;
 }
 
-.btn-primary {
-  background-color: #66CDAA;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #4DBD94;
-}
-
-/* Separadores */
-
 hr {
   border-top: 1px solid #C9E6DC;
   margin: 30px 0;
 }
 
-/* Para pruebas visuales */
-body {
-  background-color: red; /* Elimina esto después de verificar carga de estilos */
+.footer-dark {
+  background-color: #2E3D3B;
+  color: white;
+}
+
+.footer-dark a {
+  color: white;
+}
+
+.footer-dark a:hover {
+  color: #4DBD94;
+  text-decoration: underline;
+}
+
+h2, h3, h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+p, label, input, textarea, button {
+  font-family: 'Montserrat', sans-serif;
 }
