@@ -39,73 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProducts();
 
-  try { feather.replace(); } catch (e) {}
-
-  // Manejo del formulario de registro
-  const registerForm = document.getElementById('register-form');
-  if (registerForm) {
-    registerForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = registerForm.querySelector('#register-name').value.trim();
-      const email = registerForm.querySelector('#register-email').value.trim();
-      const password = registerForm.querySelector('#register-password').value;
-      const messageDiv = document.getElementById('register-message');
-      messageDiv.textContent = 'Registrando...';
-
-      try {
-        const response = await fetch('/.netlify/functions/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password })
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          messageDiv.textContent = 'Registro exitoso. Ahora puedes iniciar sesión.';
-          registerForm.reset();
-        } else {
-          messageDiv.textContent = result.message || 'Ocurrió un error al registrar.';
-        }
-
-      } catch (error) {
-        console.error('Error en registro:', error);
-        messageDiv.textContent = 'Error de conexión.';
-      }
-    });
-  }
-
-  // Manejo del formulario de login
-  const loginForm = document.getElementById('login-form');
-  if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = loginForm.querySelector('#login-email').value.trim();
-      const password = loginForm.querySelector('#login-password').value;
-      const messageDiv = document.getElementById('login-message');
-      messageDiv.textContent = 'Verificando...';
-
-      try {
-        const response = await fetch('/.netlify/functions/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        });
-
-        const result = await response.json();
-
-        if (response.ok) {
-          messageDiv.textContent = '¡Inicio de sesión exitoso!';
-          loginForm.reset();
-          // Aquí puedes redirigir o mostrar contenido especial
-        } else {
-          messageDiv.textContent = result.message || 'Credenciales incorrectas.';
-        }
-
-      } catch (error) {
-        console.error('Error en login:', error);
-        messageDiv.textContent = 'Error de conexión.';
-      }
-    });
-  }
+  // Reemplazar íconos de Feather
+  try {
+    feather.replace();
+  } catch (e) {}
 });
