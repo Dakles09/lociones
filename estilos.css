@@ -1,15 +1,6 @@
-/* ============= FORMULARIOS DE LOGIN Y REGISTRO ============= */
-#auth {
-  background-color: #F2FBF7; /* mismo fondo que body */
-  padding: 60px 0;
-}
+/* ============= ESTILOS GENERALES PARA FORMULARIOS Y BOTONES ============= */
 
-#auth h2, #auth h5 {
-  color: #2E4F4F; /* verde musgo elegante */
-  font-family: 'Playfair Display', serif;
-}
-
-#auth form {
+form {
   background-color: #ffffff;
   border-radius: 16px;
   padding: 30px;
@@ -17,46 +8,41 @@
   margin-bottom: 30px;
 }
 
-#auth label {
+label {
   font-weight: 500;
   color: #2E3D3B;
 }
 
-#auth .form-control {
+.form-control {
   border-radius: 10px;
   border: 1px solid #C9E6DC;
   box-shadow: none;
 }
 
-#auth .form-control:focus {
+.form-control:focus {
   border-color: #4DBD94;
   box-shadow: 0 0 0 0.2rem rgba(102, 205, 170, 0.25);
 }
 
-#auth .btn-success {
+.btn-success {
   background-color: #4DBD94;
   border: none;
 }
 
-#auth .btn-success:hover {
+.btn-success:hover {
   background-color: #3DA57E;
 }
 
-#auth .btn-primary {
+.btn-primary {
   background-color: #66CDAA;
   border: none;
 }
 
-#auth .btn-primary:hover {
+.btn-primary:hover {
   background-color: #4DBD94;
 }
 
-#auth hr {
+hr {
   border-top: 1px solid #C9E6DC;
   margin: 30px 0;
-}
-
-#auth #login-message,
-#auth #register-message {
-  font-size: 0.9rem;
 }
