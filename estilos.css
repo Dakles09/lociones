@@ -1,4 +1,4 @@
-/* ============= ESTILOS GENERALES PARA FORMULARIOS Y BOTONES ============= */
+/* ========== ESTILOS GENERALES PARA FORMULARIOS Y BOTONES ========== */
 
 form {
   background-color: #ffffff;
@@ -6,27 +6,52 @@ form {
   padding: 30px;
   box-shadow: 0 8px 24px rgba(60, 100, 80, 0.1);
   margin-bottom: 30px;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 label {
   font-weight: 500;
   color: #2E3D3B;
+  margin-bottom: 6px;
+  display: block;
 }
 
+input[type="text"],
+input[type="email"],
+textarea,
+select,
 .form-control {
-  border-radius: 10px;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #2E3D3B;
+  background-color: #fff;
   border: 1px solid #C9E6DC;
+  border-radius: 10px;
   box-shadow: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+input:focus,
+textarea:focus,
+select:focus,
 .form-control:focus {
   border-color: #4DBD94;
   box-shadow: 0 0 0 0.2rem rgba(102, 205, 170, 0.25);
+  outline: none;
 }
+
+/* Botones personalizados */
 
 .btn-success {
   background-color: #4DBD94;
+  color: white;
   border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
 .btn-success:hover {
@@ -35,17 +60,26 @@ label {
 
 .btn-primary {
   background-color: #66CDAA;
+  color: white;
   border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
   background-color: #4DBD94;
 }
 
+/* Separadores */
+
 hr {
   border-top: 1px solid #C9E6DC;
   margin: 30px 0;
 }
+
+/* Para pruebas visuales */
 body {
-  background-color: red;
+  background-color: red; /* Elimina esto después de verificar carga de estilos */
 }
