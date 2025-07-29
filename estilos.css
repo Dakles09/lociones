@@ -46,3 +46,6 @@ hr {
   border-top: 1px solid #C9E6DC;
   margin: 30px 0;
 }
+body {
+  background-color: red;
+}
